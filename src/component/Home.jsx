@@ -1,20 +1,25 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import {Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input} from 'reactstrap';
 import { CartFill, Truck } from 'react-bootstrap-icons';
 import CardDesign from './CardDetail';
 const Header  = React.lazy(() => import('./header/Header'));
 
 const Home = (props) => {
   const [modal, setModal] = useState(false);
+  const [customModal, setCustomModal] = useState(false);
   const openModel = () => setModal(!modal); 
+  const openCustomModel = () => setCustomModal(!customModal); 
 
   const history = useHistory();
 
   const proceedNext = () => {
-    alert('complete');
     let path = `mainBoard`;
     history.push(path);
+  }
+
+  const customSize = () => {
+    console.log('custome size')
   }
 
   return (
@@ -37,7 +42,7 @@ const Home = (props) => {
               <Col sm="12" md={{size: 3}} lg={{size: 3}}>
                 <CardDesign img="lglayer.png" title="Premium birch plywood" rate="29.5 x 595" amount="480" amount1="337" />
               </Col>
-              <Col sm="12" md={{size: 3}} lg={{size: 3}}>
+              <Col sm="12" md={{size: 3}} lg={{size: 3}} onClick={openCustomModel} >
                 <CardDesign img="custome.png" title="Standard Harboard" rate="24 sq ft and up" amount="" amount1="24.97" />
               </Col>
 
@@ -67,6 +72,26 @@ const Home = (props) => {
 
             </ModalBody>
             <ModalFooter>
+              <span className="pro-btn">
+                <Button type="button" className="btn1" onClick={proceedNext}>Proceed</Button>
+              </span>
+            </ModalFooter>
+          </Modal>
+
+          <Modal centered size="lg" isOpen={customModal} toggle={openCustomModel} >
+            <ModalHeader style={{borderBottom: '0px'}} className="p-c">Enter Size for Custom</ModalHeader>
+            <ModalBody>
+            <Row>
+              <Col className="pt-4" sm="12" md={{ size: 5, offset: 1 }} lg={{size: 5, offset: 1}}>
+                <Input placeholder="Width" type="text" />
+              </Col>
+              <Col className="pt-4" sm="12" md={{ size: 6}} lg={{size: 6}}>
+                <Input placeholder="Height" type="text" />
+              </Col>
+            </Row>
+
+            </ModalBody>
+            <ModalFooter style={{borderTop: "0px"}}>
               <span className="pro-btn">
                 <Button type="button" className="btn1" onClick={proceedNext}>Proceed</Button>
               </span>

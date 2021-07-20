@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Row, Col, Button,TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText} from 'reactstrap';
 import { CloudArrowDown, UiChecksGrid, TextareaT, ChevronLeft } from 'react-bootstrap-icons';
 import classnames from 'classnames';
+import Canvas from './Canvas';
 
 const Tab = () => {
   
@@ -41,7 +42,10 @@ const Tab = () => {
 
   return (
     <React.Fragment>
-      <Row >
+        <div style={{width: "100%", height: "8vh", backgroundColor:"#fff"}}>
+
+        </div>
+      <Row md="12" lg="12" sm="12" style={{position: "relative", marginTop: "-75px"}}>
         <Col sm="3" lg="1" md="1" className="pr">
           <div className="tab">
             <Button className="tablinks pro-btn" onClick={(e) => openTab(e, 'Upload')} >
@@ -60,7 +64,7 @@ const Tab = () => {
         </Col>
         <Col sm="3" lg="4" md="4" className="pl">
           <div id="Upload" className="tabcontent tab-c tab-d">
-            <div className="minPanel" onClick={(e) => hidePanel('Upload')}> <ChevronLeft /></div>
+            <div className="minPanel" style={{display: "flex", alignItems: "center"}} onClick={(e) => hidePanel('Upload')}> <span><ChevronLeft /></span></div>
             <Col className="pt-3" sm="4" md="4" lg={{size: 10}}>
               <Button type="button" className="btn-w" >Upload media</Button>
             </Col>
@@ -131,6 +135,9 @@ const Tab = () => {
             <h3>Text</h3>
             <p>Text.</p>
           </div>
+        </Col>
+        <Col sm="6" md="4" lg="3" style={{paddingTop: "130px"}}>
+          <Canvas />
         </Col>
       </Row>
     </React.Fragment>
