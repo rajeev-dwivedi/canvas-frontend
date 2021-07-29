@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Row, Col, Button,TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText} from 'reactstrap';
-import { CloudArrowDown, UiChecksGrid, TextareaT, ChevronLeft } from 'react-bootstrap-icons';
+import { CloudArrowDown, UiChecksGrid, TextareaT, ChevronLeft, Cpu } from 'react-bootstrap-icons';
 import classnames from 'classnames';
 import Canvas from './Canvas';
 
@@ -43,7 +43,13 @@ const Tab = () => {
   return (
     <React.Fragment>
         <div style={{width: "100%", height: "8vh", backgroundColor:"#fff"}}>
+          <Col md={{offset: 9}} className="mt-2">
+            <Button outline color="primary">Flip</Button>{' '}
+            <Button outline color="secondary">Position</Button>{' '}
+            <Button outline color="success">Black</Button>{' '}
+            <Button outline color="success">Delete</Button>{' '}
 
+          </Col>
         </div>
       <Row md="12" lg="12" sm="12" style={{position: "relative", marginTop: "-75px"}}>
         <Col sm="3" lg="1" md="1" className="pr">

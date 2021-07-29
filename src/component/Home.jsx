@@ -18,10 +18,6 @@ const Home = (props) => {
     history.push(path);
   }
 
-  const customSize = () => {
-    console.log('custome size')
-  }
-
   return (
     <main>
       <Header />
